@@ -18,4 +18,10 @@ class TextConstants{
   static final tab2="Combos";
   static final tab3="Sliders";
   static final tab4='Classic';
+  static const baseUrl='https://fakestoreapi.in/';
+  static const productEndPoint='api/products/';
+  static const success="SUCCESS";
+  static const expectedAJsonError='Expected a JSON map for ShoppingCartItemModel';
+  static const expectedASuccess='Expected a successful response with products';
+
 }
