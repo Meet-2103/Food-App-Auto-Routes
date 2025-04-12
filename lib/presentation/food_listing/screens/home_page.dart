@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-
-import 'package:food_app_auto_router/presentation/widgets/search_and_filter.dart';
-import 'package:food_app_auto_router/presentation/widgets/tab_Bar.dart';
-
 import '../widgets/bottom_navigation_with_notch.dart';
 import '../widgets/product_appbar.dart';
+import '../widgets/search_and_filter.dart';
+import '../widgets/tab_Bar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_app_auto_router/splash_screen.dart';
-
-import 'presentation/screens/home_page.dart';
+import 'package:food_app_auto_router/presentation/food_listing/screens/home_page.dart';
 
 void main(){
   runApp(MyApp());

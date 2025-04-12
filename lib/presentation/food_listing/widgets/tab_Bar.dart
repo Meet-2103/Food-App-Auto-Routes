@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:food_app_auto_router/core/color_constants.dart';
 import 'package:food_app_auto_router/core/text_constants.dart';
-import 'package:food_app_auto_router/presentation/widgets/home_screen_tabs.dart';
+
+import 'home_screen_tabs.dart';
 
 class FoodTabBar extends StatelessWidget {
   const FoodTabBar({super.key});

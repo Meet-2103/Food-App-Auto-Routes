@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../core/text_constants.dart';
-import '../../core/text_style_constants.dart';
+import '../../../core/text_constants.dart';
+import '../../../core/text_style_constants.dart';
+
 
 
 class HomePageAppBar extends StatelessWidget implements PreferredSizeWidget{

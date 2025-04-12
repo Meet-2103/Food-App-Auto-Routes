@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:food_app_auto_router/core/text_constants.dart';
 
-import '../../core/color_constants.dart';
+import '../../../core/color_constants.dart';
 
 class SearchAndFilterBar extends StatelessWidget {
   const SearchAndFilterBar({super.key});
