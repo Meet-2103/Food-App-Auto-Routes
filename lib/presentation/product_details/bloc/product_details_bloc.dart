@@ -7,39 +7,36 @@ import '../../../domain/usecase/product_usercase.dart';
 
 class ProductBloc extends Bloc<ProductEvent, ProductState> {
   final GetProductItems getProductUseCase;
-  ProductBloc(this.getProductUseCase) : super(InitalState()) {
+  ProductBloc(this.getProductUseCase) : super(InitialState()) {
     on<LoadingProduct>(_onLoadingProduct);
-    on<LoadedProduct>(_onLoadedProduct);
     on<AddCounter>(_addCounter);
     on<SubtractCounter>(_subCounter);
   }
 
   Future<void> _onLoadingProduct(LoadingProduct event, Emitter<ProductState> emit) async {
     try {
-      final product = await getProductUseCase.getProductItemById(1);  //use id from Ui
-      emit(LoadingProductState(data: product));
+      final product = await getProductUseCase.getProductItemById(1); // Replace with actual ID
+      print('🛒 Product loaded: ${product.title}');
+      emit(LoadedProductState(counter: 0, data: product)); // emit proper state here
     } catch (e) {
-      emit(InitalState());
+      print('❌ Error loading product: $e');
+      emit(InitialState());
     }
   }
 
-
-  void _onLoadedProduct(LoadedProduct event, Emitter<ProductState> emit) {
-    emit(LoadedProductState(counter: 0));
-  }
-
-  void _addCounter(AddCounter event,Emitter<ProductState> emit){
-    final currentState=state;
-    if(currentState is LoadedProductState){
-      emit(LoadedProductState(counter: currentState.counter+1));
+  void _addCounter(AddCounter event, Emitter<ProductState> emit) {
+    final currentState = state;
+    if (currentState is LoadedProductState) {
+      emit(LoadedProductState(counter: currentState.counter + 1, data: currentState.data));
     }
   }
 
-  void _subCounter(SubtractCounter event,Emitter<ProductState> emit){
-    final currentState=state;
-    if(currentState is LoadedProductState){
-      int currentCounter=currentState.counter>0 ? currentState.counter-1 : 0;
-      emit(LoadedProductState(counter: currentCounter));
+  void _subCounter(SubtractCounter event, Emitter<ProductState> emit) {
+    final currentState = state;
+    if (currentState is LoadedProductState) {
+      int currentCounter = currentState.counter > 0 ? currentState.counter - 1 : 0;
+      emit(LoadedProductState(counter: currentCounter, data: currentState.data));
     }
   }
+
 }

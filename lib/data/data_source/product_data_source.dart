@@ -26,17 +26,17 @@ class ProductRemoteDataSource {
   Future<List<ProductModel>> fetchProductItemsById(int id) async {
     final response = await apiClient.getProductById(id);
     if (response['status'] == TextConstants.success) {
-      final List<dynamic> productsList = response['products'];
-      return productsList.map((json) {
-        if (json is Map<String, dynamic>) {
-          return ProductModel.fromJson(json);
-        } else {
-          throw FormatException(TextConstants.expectedAJsonError);
-        }
-      }).toList();
+      final dynamic productJson = response['product'];
+      if (productJson is Map<String, dynamic>) {
+        final product = ProductModel.fromJson(productJson);
+        return [product]; // Wrap in a list to maintain return type
+      } else {
+        throw FormatException(TextConstants.expectedAJsonError);
+      }
     } else {
-      throw FormatException('Expected a successful response with products');
+      throw FormatException('Expected a successful response with product');
     }
   }
+
 }
 //extract constants

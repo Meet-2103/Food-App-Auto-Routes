@@ -10,6 +10,7 @@ class TextConstants{
   static final heartIcon='assets/icons/heart.svg';
   static final orderFavFood='Order Your Favourite Food!';
   static final orderFavFoodFont='Poppins';
+  static final robotoFont='Roboto';
   static final profileImage='assets/images/profile_image.jpeg';
   static final searchIcon='assets/icons/search.svg';
   static final search="Search";
@@ -23,5 +24,8 @@ class TextConstants{
   static const success="SUCCESS";
   static const expectedAJsonError='Expected a JSON map for ShoppingCartItemModel';
   static const expectedASuccess='Expected a successful response with products';
+  static const errorFound="Error found";
+  static const ratingRow="4.9 - 26mins";
+  static const orderNow="ORDER Now";
 
 }

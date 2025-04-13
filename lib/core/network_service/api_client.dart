@@ -18,7 +18,7 @@ class ApiClient{
 
   Future<Map<String,dynamic>> getProductById(int id)async{
     try {
-      final response = await dio.get("${TextConstants.productEndPoint}/$id");
+      final response = await dio.get("${TextConstants.productEndPoint}$id");
       return response.data;
     }
     catch(e){
