@@ -30,5 +30,9 @@ class TextConstants{
   static const rating="4.9";
   static const orderNow="ORDER NOW";
   static final star='assets/icons/star.svg';
+  static final spicy='Spicy';
+  static final portion='Portion';
+  static const mild='Mild';
+  static const hot='Hot';
 
 }

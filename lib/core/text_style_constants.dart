@@ -76,5 +76,8 @@ class TextStyleConstants{
     color: ColorConstants.white,
   );
 
+  static final portion=TextStyle(fontWeight: FontWeight.bold);
+  static final mild=TextStyle(color: ColorConstants.green,fontSize: 12);
+  static final hot= TextStyle(color: ColorConstants.red,fontSize: 12);
 
 }

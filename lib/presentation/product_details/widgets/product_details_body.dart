@@ -6,10 +6,12 @@ import 'package:food_app_auto_router/core/text_style_constants.dart';
 import 'package:food_app_auto_router/presentation/product_details/bloc/product_details_bloc.dart';
 import 'package:food_app_auto_router/presentation/product_details/bloc/product_details_state.dart';
 import 'package:food_app_auto_router/core/text_constants.dart';
+import 'package:food_app_auto_router/presentation/product_details/widgets/spice_selector.dart';
 
 
 class ProductDetailsBody extends StatelessWidget {
-  const ProductDetailsBody({super.key});
+  final int id;
+  const ProductDetailsBody({super.key, required this.id});
 
   @override
   Widget build(BuildContext context) {
@@ -37,13 +39,7 @@ class ProductDetailsBody extends StatelessWidget {
                     ],
                   ),
                   Text(product.description,style: TextStyleConstants.productDescription,maxLines: 4,),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-
-                    ],
-                  ),
-                  SizedBox(height: 73,),
+                  SpicePortionSelector(),
                   Row(
                     spacing: 49,
                     children: [

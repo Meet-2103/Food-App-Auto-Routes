@@ -1,14 +1,15 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:food_app_auto_router/core/color_constants.dart';
+import 'package:food_app_auto_router/core/navigation_routes/app_router.gr.dart';
 import 'package:food_app_auto_router/core/text_constants.dart';
 import 'package:food_app_auto_router/presentation/food_listing/bloc/food_listiing_bloc.dart';
 import 'package:food_app_auto_router/presentation/food_listing/bloc/food_listing_state.dart';
 
 class TabContentGrid extends StatelessWidget {
   final String label;
-
   const TabContentGrid({super.key, required this.label});
 
   @override
@@ -28,10 +29,12 @@ class TabContentGrid extends StatelessWidget {
               mainAxisSpacing: 31,
               crossAxisSpacing: 22,
             ),
-            itemCount: product.length, // You can make this a prop too if needed
+            itemCount: product.length,
             itemBuilder: (context, index) {
               return GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  AutoRouter.of(context).push(ProductDetailRoute(id: product[index].id));
+                },
                 child: Container(
                   decoration: BoxDecoration(
                     color:  ColorConstants.white,

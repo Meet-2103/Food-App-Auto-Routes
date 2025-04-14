@@ -17,5 +17,6 @@ class ColorConstants{
   static const red = Color(0xFFEF2A39);
   static const grey = Color(0xFF808080);
   static const green = Color(0xFF1CC019);
+  static const sliderGrey=Color(0xFFF3F4F6);
 
 }
