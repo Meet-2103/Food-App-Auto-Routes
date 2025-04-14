@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_app_auto_router/presentation/food_listing/bloc/food_lisiting_event.dart';
 import 'package:food_app_auto_router/presentation/food_listing/bloc/food_listiing_bloc.dart';
-import 'package:food_app_auto_router/presentation/food_listing/screens/home_page.dart';
 import 'package:food_app_auto_router/presentation/product_details/bloc/product_details_bloc.dart';
 import 'package:food_app_auto_router/presentation/product_details/bloc/product_details_event.dart';
+import 'package:food_app_auto_router/presentation/product_details/screens/product_detail_screen.dart';
 import 'package:food_app_auto_router/core/di/injection_container.dart' as di;
-
 
 void main()async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,9 +20,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // final apiClient = ApiClient();
+    // final remoteDataSource = ProductRemoteDataSource(apiClient: apiClient);
+    // final repository = ProductRepositoryImplementation(remoteDataSource: remoteDataSource);
+    // final getShoppingCartItems = GetProductItems(repo: repository);
+
     return MultiBlocProvider(
       providers: [
-        BlocProvider<ProductBloc>(
+        BlocProvider<ProductBloc>(         //remove
           create: (context) => ProductBloc(di.sl())..add(LoadingProduct()),
         ),
         BlocProvider<FoodListingBloc>(
@@ -32,7 +36,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: HomePage(),
+        home: ProductDetailScreen(),
       ),
     );
   }

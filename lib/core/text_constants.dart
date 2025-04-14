@@ -1,6 +1,7 @@
 
 class TextConstants{
   static final splashScreenTitle='Foodgo';
+  static final inter='Inter';
   static final splashScreenTitleFontFamily='Lobster-Regular';
   static final splashScreenLeftImage='assets/images/burgerLeft.png';
   static final splashScreenRightImage='assets/images/burgerRight.png';
@@ -25,9 +26,9 @@ class TextConstants{
   static const expectedAJsonError='Expected a JSON map for ShoppingCartItemModel';
   static const expectedASuccess='Expected a successful response with products';
   static const errorFound="Error found";
-  static const ratingRow="4.9 - 26mins";
+  static const ratingRow="4.9 - 26 mins";
   static const rating="4.9";
-  static const orderNow="ORDER Now";
+  static const orderNow="ORDER NOW";
   static final star='assets/icons/star.svg';
 
 }

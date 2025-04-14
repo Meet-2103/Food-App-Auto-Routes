@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:food_app_auto_router/core/color_constants.dart';
 import 'package:food_app_auto_router/core/text_style_constants.dart';
 import 'package:food_app_auto_router/presentation/product_details/bloc/product_details_bloc.dart';
@@ -14,50 +15,57 @@ class ProductDetailsBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ProductBloc,ProductState>(
         builder: (context,state){
-
           if(state is InitialState){
             return CircularProgressIndicator();
           }
           else if(state is LoadedProductState){
             final product=state.data;
             return SingleChildScrollView(
+              padding: EdgeInsets.symmetric(horizontal: 19),
               child: Column(
+                spacing: 19,
                 children: [
                   ClipRRect(
                     child: Image.network(product.image,height: 350,width: 350,),
                   ),
-                  SizedBox(height: 50,),
                   Text(product.title,style: TextStyleConstants.productTitle,maxLines: 1,),
-                  SizedBox(height: 9,),
                   Row(
+                    spacing: 5,
                     children: [
-                        Icon(Icons.star),
+                        SvgPicture.asset(TextConstants.star,),
                         Text(TextConstants.ratingRow,style: TextStyleConstants.ratingRow,),
                     ],
                   ),
                   Text(product.description,style: TextStyleConstants.productDescription,maxLines: 4,),
-                  SizedBox(height: 29,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-              
+
                     ],
                   ),
                   SizedBox(height: 73,),
                   Row(
+                    spacing: 49,
                     children: [
                       Container(height: 70,width: 104,
-                      color: ColorConstants.red,
-                      child: Text("${product.price}",style: TextStyleConstants.productPrice,),),
-                      Container(
-                        height: 70,
-                        width: 239,
-                        child: Text(TextConstants.orderNow),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: ColorConstants.red,
+                      ),
+
+                      child: Center(child: Text("\$${product.price}",style: TextStyleConstants.productPrice,)),),
+                      Expanded(
+                        child: Container(
+                          height: 70,
+                          decoration: BoxDecoration(
+                            color: ColorConstants.orderNowButton,
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Center(child: Text(TextConstants.orderNow,style: TextStyleConstants.orderNowButton,)),
+                        ),
                       )
                     ],
-              
                   ),
-              
                 ],
               ),
             );

@@ -67,6 +67,14 @@ class TextStyleConstants{
     color: ColorConstants.white,
   );
 
+  static final orderNowButton=TextStyle(
+    fontFamily: TextConstants.inter,
+    fontWeight: FontWeight.w600,
+    fontSize: 16,
+    height: 1.35,
+    letterSpacing: 0,
+    color: ColorConstants.white,
+  );
 
 
 }

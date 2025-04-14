@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:food_app_auto_router/core/color_constants.dart';
 import 'package:food_app_auto_router/core/text_constants.dart';
 
 class ProductDetailAppBar extends StatelessWidget implements PreferredSizeWidget{
@@ -8,6 +9,7 @@ class ProductDetailAppBar extends StatelessWidget implements PreferredSizeWidget
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      backgroundColor: ColorConstants.white,
       leading: Icon(Icons.arrow_back_sharp,size: 28,),
       actions: [Padding(
         padding: const EdgeInsets.symmetric(horizontal: 19),

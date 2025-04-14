@@ -11,7 +11,7 @@ class ColorConstants{
   static final orderFavFood=Color(0xFF6A6A6A);
   static final searchIcon=Color(0xFF3C2F2F);
   static final starColor=Color(0xFFFF9633);
-
+  static final orderNowButton=Color(0xFF3C2F2F);
 
   static const darkBrown = Color(0xFF3C2F2F);
   static const red = Color(0xFFEF2A39);
