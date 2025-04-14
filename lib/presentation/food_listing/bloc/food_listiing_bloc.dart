@@ -8,20 +8,29 @@ import 'package:food_app_auto_router/domain/entity/product_entity.dart';
 
 class FoodListingBloc extends Bloc<FoodListingEvent, FoodListingState> {
   final GetProductItems getProductItems;
-
+  List<ProductEntity> _products=[];
   FoodListingBloc(this.getProductItems) : super(InitialFoodListingState()) {
     on<FoodLoadedEvent>(_foodLoaded);
+    on<SearchFoodEvent>(_searchFood);
   }
 
   Future<void> _foodLoaded(
       FoodLoadedEvent event, Emitter<FoodListingState> emit) async {
     try {
-      final List<ProductEntity> products = await getProductItems.getProductItems();
-      print(products);
-      emit(LoadedFoodListingState(products: products));
+      _products = await getProductItems.getProductItems();
+      print(_products);
+      emit(LoadedFoodListingState(products: _products));
     } catch (e) {
-      emit(InitialFoodListingState());
       print("Error loading products: $e");
     }
   }
+
+  void _searchFood(SearchFoodEvent event, Emitter<FoodListingState> emit) {
+    final query = event.query.toLowerCase();
+    final filtered = _products
+        .where((product) => product.title.toLowerCase().contains(query))
+        .toList();
+    emit(LoadedFoodListingState(products: filtered));
+  }
+
 }

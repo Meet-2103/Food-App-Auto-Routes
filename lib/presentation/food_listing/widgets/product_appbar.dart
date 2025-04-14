@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/text_constants.dart';
-import '../../../core/text_style_constants.dart';
+import 'package:food_app_auto_router/core/text_constants.dart';
+import 'package:food_app_auto_router/core/text_style_constants.dart';
 
 
 

@@ -26,6 +26,8 @@ class TextConstants{
   static const expectedASuccess='Expected a successful response with products';
   static const errorFound="Error found";
   static const ratingRow="4.9 - 26mins";
+  static const rating="4.9";
   static const orderNow="ORDER Now";
+  static final star='assets/icons/star.svg';
 
 }

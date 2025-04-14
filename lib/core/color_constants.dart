@@ -10,6 +10,7 @@ class ColorConstants{
   static final homePageTitle=Color(0xFF3C2F2F);
   static final orderFavFood=Color(0xFF6A6A6A);
   static final searchIcon=Color(0xFF3C2F2F);
+  static final starColor=Color(0xFFFF9633);
 
 
   static const darkBrown = Color(0xFF3C2F2F);
