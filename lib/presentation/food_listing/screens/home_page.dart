@@ -1,10 +1,10 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:food_app_auto_router/core/color_constants.dart';
-import '../widgets/bottom_navigation_with_notch.dart';
-import '../widgets/product_appbar.dart';
-import '../widgets/search_and_filter.dart';
-import '../widgets/tab_Bar.dart';
+import 'package:food_app_auto_router/presentation/food_listing/widgets/bottom_navigation_with_notch.dart';
+import 'package:food_app_auto_router/presentation/food_listing/widgets/product_appbar.dart';
+import 'package:food_app_auto_router/presentation/food_listing/widgets/search_and_filter.dart';
+import 'package:food_app_auto_router/presentation/food_listing/widgets/tab_Bar.dart';
 
 @RoutePage()
 class HomePage extends StatelessWidget {
