@@ -27,12 +27,18 @@ class TextConstants{
   static const expectedASuccess='Expected a successful response with products';
   static const errorFound="Error found";
   static const ratingRow="4.9 - 26 mins";
-  static const rating="4.9";
+  static const rating=" 4.9";
   static const orderNow="ORDER NOW";
   static final star='assets/icons/star.svg';
+  static final outlinedHeart='assets/icons/outline_heart.svg';
   static final spicy='Spicy';
   static final portion='Portion';
   static const mild='Mild';
   static const hot='Hot';
+  static const successTitle = 'Success !';
+  static const successMessage = 'Your payment was successful.\n'
+      'A receipt for this purchase has\n'
+      'been sent to your email.';
+  static const goBack = 'Go Back';
 
 }

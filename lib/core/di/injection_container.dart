@@ -5,22 +5,21 @@ import 'package:food_app_auto_router/data/repository_implementation/product_repo
 import 'package:food_app_auto_router/domain/repository/product_repository.dart';
 import 'package:food_app_auto_router/domain/usecase/product_usercase.dart';
 
-final sl = GetIt.instance;
+final injector = GetIt.instance;
 
 Future<void> init() async {
 
-  sl.registerLazySingleton<ApiClient>(() => ApiClient());
+  injector.registerLazySingleton<ApiClient>(() => ApiClient());
 
-  sl.registerLazySingleton<ProductRemoteDataSource>(
-        () => ProductRemoteDataSource(apiClient: sl()),
+  injector.registerLazySingleton<ProductRemoteDataSource>(
+        () => ProductRemoteDataSource(apiClient: injector()),
   );
 
-
-  sl.registerLazySingleton<ProductRepository>(
-        () => ProductRepositoryImplementation(remoteDataSource: sl()),
+  injector.registerLazySingleton<ProductRepository>(
+        () => ProductRepositoryImplementation(remoteDataSource: injector()),
   );
 
-  sl.registerLazySingleton<GetProductItems>(
-        () => GetProductItems(repo: sl()),
+  injector.registerLazySingleton<GetProductItems>(
+        () => GetProductItems(repo: injector()),
   );
 }

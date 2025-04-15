@@ -19,10 +19,5 @@ class LoadedProductState extends ProductState {
   @override
   List<Object?> get props => [counter, data];
 }
-//
-// class LoadedProductState extends ProductState{
-//   final int counter;
-//   LoadedProductState({required this.counter});
-// }
 
 

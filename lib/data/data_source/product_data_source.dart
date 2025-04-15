@@ -1,6 +1,6 @@
 import 'package:food_app_auto_router/data/models/product_model.dart';
-import '../../core/network_service/api_client.dart';
-import '../../core/text_constants.dart';
+import 'package:food_app_auto_router/core/network_service/api_client.dart';
+import 'package:food_app_auto_router/core/text_constants.dart';
 
 class ProductRemoteDataSource {
   final ApiClient apiClient;
@@ -29,7 +29,7 @@ class ProductRemoteDataSource {
       final dynamic productJson = response['product'];
       if (productJson is Map<String, dynamic>) {
         final product = ProductModel.fromJson(productJson);
-        return [product]; // Wrap in a list to maintain return type
+        return [product];
       } else {
         throw FormatException(TextConstants.expectedAJsonError);
       }

@@ -76,8 +76,32 @@ class TextStyleConstants{
     color: ColorConstants.white,
   );
 
+  static final successTitle = TextStyle(
+    fontSize: 22,
+    fontWeight: FontWeight.bold,
+    color: ColorConstants.red
+  );
+
+  static final successMessage = TextStyle(
+    fontSize: 14,
+    color: ColorConstants.grey,
+    height: 1.4,
+  );
+
+  static final buttonText = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+    color: Colors.white,
+  );
+
+
   static final portion=TextStyle(fontWeight: FontWeight.bold);
   static final mild=TextStyle(color: ColorConstants.green,fontSize: 12);
   static final hot= TextStyle(color: ColorConstants.red,fontSize: 12);
+  static final spicy=TextStyle(fontWeight: FontWeight.bold);
+  static final counter=TextStyle(fontSize: 18);
+  static final searchButton=const TextStyle(
+    fontFamily: 'Roboto',
+  );
 
 }

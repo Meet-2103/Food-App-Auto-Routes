@@ -23,7 +23,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
     }
   }
 
-  void _addCounter(AddCounter event, Emitter<ProductState> emit) {      //left to try
+  void _addCounter(AddCounter event, Emitter<ProductState> emit) {
     final currentState = state;
     if (currentState is LoadedProductState) {
       emit(LoadedProductState(counter: currentState.counter + 1, data: currentState.data));

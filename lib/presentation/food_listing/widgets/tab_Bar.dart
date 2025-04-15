@@ -34,7 +34,7 @@ class _FoodTabBarState extends State<FoodTabBar> {
               separatorBuilder: (_, __) => const SizedBox(width: 12),
               itemBuilder: (context, index) {
                 final isSelected = selectedIndex == index;
-                return GestureDetector(        //using set state
+                return GestureDetector(
                   onTap: () {
                     setState(() {
                       selectedIndex = index;
@@ -46,12 +46,12 @@ class _FoodTabBarState extends State<FoodTabBar> {
                     decoration: BoxDecoration(
                       color: isSelected
                           ? ColorConstants.bottomNavigation
-                          : Colors.transparent,
+                          : ColorConstants.sliderGrey,
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Text(
                       tabs[index],
-                      style: TextStyle(        //ask
+                      style: TextStyle(        //ask should we extract
                         color: isSelected
                             ? ColorConstants.white
                             : ColorConstants.orderFavFood,
@@ -68,7 +68,7 @@ class _FoodTabBarState extends State<FoodTabBar> {
             child: IndexedStack(
               index: selectedIndex,
               children: [
-                TabContentGrid(label: 'Tab 1 content'),
+                TabContentGrid(),
               ],
             ),
           ),

@@ -6,13 +6,13 @@ class ApiClient{
 
   final Dio dio=Dio(BaseOptions(baseUrl: TextConstants.baseUrl));
 
-  Future<Map<String,dynamic>> getProducts()async{     //return type check
+  Future<Map<String,dynamic>> getProducts()async{
     try {
       final response = await dio.get(TextConstants.productEndPoint);
       return response.data;
     }
     catch(e){
-      throw Exception(TextConstants.tabs1);
+      throw Exception(TextConstants.errorFound);
     }
   }
 
@@ -22,7 +22,7 @@ class ApiClient{
       return response.data;
     }
     catch(e){
-      throw Exception(TextConstants.tabs1);
+      throw Exception(TextConstants.errorFound);
     }
   }
 }

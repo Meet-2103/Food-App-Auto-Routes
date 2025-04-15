@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:food_app_auto_router/core/color_constants.dart';
 import 'package:food_app_auto_router/core/text_constants.dart';
-
-import '../../../core/color_constants.dart';
-import '../bloc/food_lisiting_event.dart';
-import '../bloc/food_listiing_bloc.dart';
+import 'package:food_app_auto_router/core/text_style_constants.dart';
+import 'package:food_app_auto_router/presentation/food_listing/bloc/food_lisiting_event.dart';
+import 'package:food_app_auto_router/presentation/food_listing/bloc/food_listiing_bloc.dart';
 
 class SearchAndFilterBar extends StatelessWidget {
   const SearchAndFilterBar({super.key});
@@ -21,11 +21,11 @@ class SearchAndFilterBar extends StatelessWidget {
             child:Container(
               height: 60,
               decoration: BoxDecoration(
-                color: const Color(0xFFFFFFFF),
+                color: ColorConstants.white,
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0x26000000), // 15% of black (0x26 = 15%)
+                    color: ColorConstants.boxShadowColor,
                     offset: const Offset(0, 4),
                     blurRadius: 19,
                     spreadRadius: 0,
@@ -41,9 +41,7 @@ class SearchAndFilterBar extends StatelessWidget {
                   border: InputBorder.none,
                   hintText: TextConstants.search,
                 ),
-                style: const TextStyle(
-                  fontFamily: 'Roboto', // if you're using Roboto in your theme
-                ),
+                style: TextStyleConstants.searchButton,
               ),
             )
           ),

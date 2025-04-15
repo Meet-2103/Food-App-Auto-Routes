@@ -9,87 +9,96 @@ import 'package:food_app_auto_router/presentation/food_listing/bloc/food_listiin
 import 'package:food_app_auto_router/presentation/food_listing/bloc/food_listing_state.dart';
 
 class TabContentGrid extends StatelessWidget {
-  final String label;
-  const TabContentGrid({super.key, required this.label});
+  const TabContentGrid({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<FoodListingBloc,FoodListingState>(
-      builder: (context,state){
-        if(state is InitialFoodListingState){
-          return Center(child: CircularProgressIndicator(),);
-        }
-        else if(state is LoadedFoodListingState){
-          var product=state.products;
-          return GridView.builder(
-            padding: const EdgeInsets.all(16),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              childAspectRatio: 0.822,
-              mainAxisSpacing: 31,
-              crossAxisSpacing: 22,
-            ),
-            itemCount: product.length,
-            itemBuilder: (context, index) {
-              return GestureDetector(
-                onTap: () {
-                  AutoRouter.of(context).push(ProductDetailRoute(id: product[index].id));
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                    color:  ColorConstants.white,
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
-                      BoxShadow(
-                        color: const Color(0x21000000),
-                        offset: const Offset(0, 6),
-                        blurRadius: 17,
-                        spreadRadius: 0,
-                      ),
-                    ],
-                  ),
+    return BlocBuilder<FoodListingBloc, FoodListingState>(
+      builder: (context, state) {
+        switch (state) {
+          case InitialFoodListingState():
+            return const Center(child: CircularProgressIndicator());
 
-                  child: Column(
-                    children: [
-                      Image.network(product[index].image,height: 120,width: 120,
-                        errorBuilder:(context,error,stackTrace) {
-                        return Container(
+          case LoadedFoodListingState(:final products):
+            return GridView.builder(
+              padding: const EdgeInsets.all(16),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 0.822,
+                mainAxisSpacing: 31,
+                crossAxisSpacing: 22,
+              ),
+              itemCount: products.length,
+              itemBuilder: (context, index) {
+                final product = products[index];
+                return GestureDetector(
+                  onTap: () {
+                    AutoRouter.of(context).push(ProductDetailRoute(id: product.id));
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    decoration: BoxDecoration(
+                      color: ColorConstants.white,
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                          color: ColorConstants.boxShadowColor,
+                          offset: const Offset(0, 6),
+                          blurRadius: 17,
+                          spreadRadius: 0,
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      children: [
+                        Image.network(
+                          product.image,
                           height: 120,
                           width: 120,
-                          color: Colors.grey.shade200,
-                          alignment: Alignment.center,
-                          child: Icon(
-                          Icons.broken_image,
-                          color: Colors.grey,
-                          size: 40,
-              ),
-              );
-                      }),
-                          SizedBox(height: 10,),
-                          Text(product[index].title,maxLines: 1,),
-                          SizedBox(height: 20,),
-                          Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          errorBuilder: (context, error, stackTrace) {
+                            return Container(
+                              height: 120,
+                              width: 120,
+                              color: ColorConstants.errorColor,
+                              alignment: Alignment.center,
+                              child: const Icon(
+                                Icons.broken_image,
+                                color: ColorConstants.grey,
+                                size: 40,
+                              ),
+                            );
+                          },
+                        ),
+                        const SizedBox(height: 10),
+                        Text(product.title, maxLines: 1),
+                        const SizedBox(height: 20),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                          SvgPicture.asset(TextConstants.star,color: ColorConstants.starColor,),
-                          Text(TextConstants.rating),
-                          SvgPicture.asset(TextConstants.heartIcon,color: ColorConstants.red
-                        ,),
-
-                        ],
-                      )
-                    ],
+                            Row(
+                              children: [
+                                SvgPicture.asset(
+                                  TextConstants.star,
+                                  color: ColorConstants.starColor,
+                                ),
+                                const SizedBox(width: 4),
+                                const Text(TextConstants.rating),
+                              ],
+                            ),
+                            SvgPicture.asset(TextConstants.outlinedHeart),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              );
-            },
-          );
-        }
-        else{
-          return Center(child: Text(TextConstants.errorFound),);
-        }
-      }
-    );
+                );
+              },
+            );
 
+          default:
+            return const Center(child: Text(TextConstants.errorFound));
+        }
+      },
+    );
   }
 }

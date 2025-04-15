@@ -6,6 +6,7 @@ import 'package:food_app_auto_router/core/text_style_constants.dart';
 import 'package:food_app_auto_router/presentation/product_details/bloc/product_details_bloc.dart';
 import 'package:food_app_auto_router/presentation/product_details/bloc/product_details_event.dart';
 import 'package:food_app_auto_router/presentation/product_details/bloc/product_details_state.dart';
+import 'package:food_app_auto_router/presentation/product_details/widgets/counter_button.dart';
 
 class SpicePortionSelector extends StatelessWidget {
   SpicePortionSelector({super.key});
@@ -24,28 +25,29 @@ class SpicePortionSelector extends StatelessWidget {
             children: [
               Text(
                 TextConstants.spicy,
-                style: TextStyle(fontWeight: FontWeight.bold),
+                style: TextStyleConstants.spicy,
               ),
               SliderTheme(
                 data: SliderTheme.of(context).copyWith(
                   activeTrackColor: ColorConstants.red,
                   inactiveTrackColor: ColorConstants.sliderGrey,
                   thumbColor: ColorConstants.red,
-                  overlayColor: Colors.red.withOpacity(0.2),  //cannot be extracted
+                  overlayColor: Colors.red.withAlpha(2),
+                  //cannot be extracted
                   trackHeight: 7,
-                  thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 10),
+                  thumbShape: const RoundSliderThumbShape(
+                      enabledThumbRadius: 10),
                 ),
                 child: Slider(
                   value: spiciness,
-                  onChanged: (value) {
-                  },
+                  onChanged: (value) {},
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 4.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children:  [
+                  children: [
                     Text(TextConstants.mild, style: TextStyleConstants.mild),
                     Text(TextConstants.hot, style: TextStyleConstants.hot,)
                   ],
@@ -57,13 +59,15 @@ class SpicePortionSelector extends StatelessWidget {
         const SizedBox(width: 16),
 
         Column(
+          spacing: 5,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+
             Text(
               TextConstants.portion,
               style: TextStyleConstants.portion,
             ),
-            const SizedBox(height: 4),
+
             BlocBuilder<ProductBloc, ProductState>(
               builder: (context, state) {
                 int counter = 0;
@@ -72,21 +76,19 @@ class SpicePortionSelector extends StatelessWidget {
                 }
 
                 return Row(
+                  spacing: 12,
                   children: [
-                    _roundedButton(
+                    RoundedButton(
                       icon: Icons.remove,
                       onPressed: () {
                         context.read<ProductBloc>().add(SubtractCounter());
                       },
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 12),
-                      child: Text(
-                        counter.toString(),
-                        style: const TextStyle(fontSize: 18),
-                      ),
+                    Text(
+                      counter.toString(),
+                      style: TextStyleConstants.counter,
                     ),
-                    _roundedButton(
+                    RoundedButton(
                       icon: Icons.add,
                       onPressed: () {
                         context.read<ProductBloc>().add(AddCounter());
@@ -99,31 +101,6 @@ class SpicePortionSelector extends StatelessWidget {
           ],
         )
       ],
-    );
-  }
-
-  Widget _roundedButton({
-    required IconData icon,
-    required VoidCallback onPressed,
-  }) {
-    return Container(
-      height: 40,
-      width: 40,
-      decoration: BoxDecoration(
-        color: ColorConstants.red,
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.red.withOpacity(0.3),
-            blurRadius: 8,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
-      child: IconButton(
-        icon: Icon(icon, color: Colors.white),
-        onPressed: onPressed,
-      ),
     );
   }
 }
