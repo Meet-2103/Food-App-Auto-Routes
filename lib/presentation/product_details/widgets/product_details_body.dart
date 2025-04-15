@@ -18,7 +18,7 @@ class ProductDetailsBody extends StatelessWidget {
     return BlocBuilder<ProductBloc,ProductState>(
         builder: (context,state){
           if(state is InitialState){
-            return CircularProgressIndicator();
+            return Center(child: CircularProgressIndicator());
           }
           else if(state is LoadedProductState){
             final product=state.data;
@@ -28,7 +28,21 @@ class ProductDetailsBody extends StatelessWidget {
                 spacing: 19,
                 children: [
                   ClipRRect(
-                    child: Image.network(product.image,height: 350,width: 350,),
+                    child: Image.network(product.image,height: 350,width: 350,
+                        errorBuilder:(context,error,stackTrace) {
+                          return Container(
+                            height: 350,
+                            width: 350,
+                            color: Colors.grey.shade200,
+                            alignment: Alignment.center,
+                            child: Icon(
+                              Icons.broken_image,
+                              color: Colors.grey,
+                              size: 40,
+                            ),
+                          );
+                        }
+                    ),
                   ),
                   Text(product.title,style: TextStyleConstants.productTitle,maxLines: 1,),
                   Row(

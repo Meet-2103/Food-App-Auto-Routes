@@ -12,10 +12,8 @@ void main()async{
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
-
+  MyApp({super.key});z
   final _appRouter = AppRouter();
-
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -25,6 +23,7 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp.router(
+        // theme: ,
         debugShowCheckedModeBanner: false,
         // home: ProductDetailScreen(),
         routerConfig: _appRouter.config(),
@@ -33,3 +32,7 @@ class MyApp extends StatelessWidget {
   }
 
 }
+
+//switch
+
+//bloc

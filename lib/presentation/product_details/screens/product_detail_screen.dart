@@ -16,9 +16,8 @@ class ProductDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<ProductBloc>(         //remove
-      create: (context) => ProductBloc(di.sl())..add(LoadingProduct()),
-
+    return BlocProvider<ProductBloc>(
+      create: (context) => ProductBloc(di.sl())..add(LoadingProduct(id: id)),
     child: Scaffold(
       backgroundColor: ColorConstants.white,
       appBar: ProductDetailAppBar(),
