@@ -22,100 +22,104 @@ class ProductDetailsBody extends StatelessWidget {
 
           case LoadedProductState(:final data):
             final product = data;
-            return SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 19),
-              child: Column(
-                children: [
-                  ClipRRect(
-                    child: Image.network(
-                      product.image,
-                      height: 350,
-                      width: 350,
-                      errorBuilder: (context, error, stackTrace) {
-                        return Container(
+            return Column(
+              children: [
+                SingleChildScrollView(
+                  padding: const EdgeInsets.symmetric(horizontal: 19),
+                  child: Column(
+                    children: [
+                      ClipRRect(
+                        child: Image.network(
+                          product.image,
                           height: 350,
                           width: 350,
-                          color: ColorConstants.errorColor,
-                          alignment: Alignment.center,
-                          child: const Icon(
-                            Icons.broken_image,
-                            color: ColorConstants.grey,
-                            size: 40,
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                  const SizedBox(height: 19),
-                  Text(
-                    product.title,
-                    style: TextStyleConstants.productTitle,
-                    maxLines: 1,
-                  ),
-                  const SizedBox(height: 19),
-                  Row(
-                    children: [
-                      SvgPicture.asset(TextConstants.star),
-                      const SizedBox(width: 5),
-                      Text(
-                        TextConstants.ratingRow,
-                        style: TextStyleConstants.ratingRow,
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 19),
-                  Text(
-                    product.description,
-                    style: TextStyleConstants.productDescription,
-                    maxLines: 4,
-                  ),
-                  const SizedBox(height: 19),
-                  SpicePortionSelector(),
-                  const SizedBox(height: 19),
-                  Row(
-                    children: [
-                      Container(
-                        height: 70,
-                        width: 104,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: ColorConstants.red,
-                        ),
-                        child: Center(
-                          child: Text(
-                            "\$${product.price}",
-                            style: TextStyleConstants.productPrice,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: 49),
-                      Expanded(
-                        child: ElevatedButton(
-                          onPressed: () {
-                            showDialog(
-                              context: context,
-                              builder: (_) => const SuccessDialog(),           //use auto routes
+                          errorBuilder: (context, error, stackTrace) {
+                            return Container(
+                              height: 350,
+                              width: 350,
+                              color: ColorConstants.errorColor,
+                              alignment: Alignment.center,
+                              child: const Icon(
+                                Icons.broken_image,
+                                color: ColorConstants.grey,
+                                size: 40,
+                              ),
                             );
                           },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: ColorConstants.orderNowButton,
-                            minimumSize: const Size.fromHeight(70),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            elevation: 0, // Match your container's flat look
-                          ),
-                          child: Text(
-                            TextConstants.orderNow,
-                            style: TextStyleConstants.orderNowButton,
-                          ),
                         ),
                       ),
+                      const SizedBox(height: 19),
+                      Text(
+                        product.title,
+                        style: TextStyleConstants.productTitle,
+                        maxLines: 1,
+                      ),
+                      const SizedBox(height: 19),
+                      Row(
+                        children: [
+                          SvgPicture.asset(TextConstants.star),
+                          const SizedBox(width: 5),
+                          Text(
+                            TextConstants.ratingRow,
+                            style: TextStyleConstants.ratingRow,
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 19),
+                      Text(
+                        product.description,
+                        style: TextStyleConstants.productDescription,
+                        maxLines: 4,
+                      ),
+                      const SizedBox(height: 19),
+                      SpicePortionSelector(),
+                      const SizedBox(height: 19),
+                      Row(
+                        children: [
+                          Container(
+                            height: 70,
+                            width: 104,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: ColorConstants.red,
+                            ),
+                            child: Center(
+                              child: Text(
+                                "\$${product.price}",
+                                style: TextStyleConstants.productPrice,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 49),
+                          Expanded(
+                            child: ElevatedButton(
+                              onPressed: () {
+                                showDialog(
+                                  context: context,
+                                  builder: (_) => const SuccessDialog(),
+                                );
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: ColorConstants.orderNowButton,
+                                minimumSize: const Size.fromHeight(70),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                elevation: 0, // Match your container's flat look
+                              ),
+                              child: Text(
+                                TextConstants.orderNow,
+                                style: TextStyleConstants.orderNowButton,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 19),
                     ],
                   ),
-                  const SizedBox(height: 19),
-                ],
-              ),
+                ),
+              ],
             );
 
           default:

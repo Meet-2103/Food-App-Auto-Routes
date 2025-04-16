@@ -20,4 +20,5 @@ class MyApp extends StatelessWidget {
   }
 }
 
-//switch
+//DIFFERENT CONSTATNTS
+//search bar

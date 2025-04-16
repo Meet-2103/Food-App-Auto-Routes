@@ -19,7 +19,7 @@ class ProductDetailScreen extends StatelessWidget {
       create: (context) => ProductBloc(di.injector())..add(LoadingProduct(id: id)),
     child: Scaffold(
       backgroundColor: ColorConstants.white,
-      appBar: ProductDetailAppBar(),
+      appBar: ProductDetailAppBar(backgroundColor: Colors.white,),
       body: ProductDetailsBody(),
     ),
       );

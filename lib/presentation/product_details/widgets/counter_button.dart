@@ -22,14 +22,14 @@ class RoundedButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: Colors.red.withOpacity(0.3),
+            color: ColorConstants.redAlpha,
             blurRadius: 8,
             offset: const Offset(0, 4),
           ),
         ],
       ),
       child: IconButton(
-        icon: Icon(icon, color: Colors.white),
+        icon: Icon(icon, color: ColorConstants.white),
         onPressed: onPressed,
       ),
     );

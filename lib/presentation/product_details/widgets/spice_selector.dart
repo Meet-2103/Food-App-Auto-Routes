@@ -32,8 +32,7 @@ class SpicePortionSelector extends StatelessWidget {
                   activeTrackColor: ColorConstants.red,
                   inactiveTrackColor: ColorConstants.sliderGrey,
                   thumbColor: ColorConstants.red,
-                  overlayColor: Colors.red.withAlpha(2),
-                  //cannot be extracted
+                  overlayColor: ColorConstants.redAlpha,
                   trackHeight: 7,
                   thumbShape: const RoundSliderThumbShape(
                       enabledThumbRadius: 10),

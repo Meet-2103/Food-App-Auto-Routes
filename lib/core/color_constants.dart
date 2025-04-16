@@ -20,5 +20,6 @@ class ColorConstants{
   static const sliderGrey=Color(0xFFF3F4F6);
   static const boxShadowColor=Color(0x26000000);
   static const transparent=Colors.transparent;
+  static final redAlpha=Colors.red.withAlpha(3);
 
 }

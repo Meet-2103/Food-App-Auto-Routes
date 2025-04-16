@@ -1,6 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:food_app_auto_router/core/color_constants.dart';
+import 'package:food_app_auto_router/core/navigation_routes/app_router.gr.dart';
 import 'package:food_app_auto_router/core/text_constants.dart';
 
 
@@ -17,11 +19,20 @@ class BottomNavigationWithNotch extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          SvgPicture.asset(TextConstants.homeIcon,color: ColorConstants.white,),
-          SvgPicture.asset(TextConstants.userIcon,color: ColorConstants.white,),
+          GestureDetector(
+            onTap: (){
+              AutoRouter.of(context).push(HomeRoute());
+            },
+              child: SvgPicture.asset(TextConstants.homeIcon,color: ColorConstants.white,)),
+          GestureDetector(
+            onTap: (){
+              AutoRouter.of(context).push(ProfileRoute());
+            },
+              child: SvgPicture.asset(
+                TextConstants.userIcon,color: ColorConstants.white,)),
           SizedBox(width: 40,),
-          SvgPicture.asset(TextConstants.commentIcon,color: ColorConstants.white,),
-          SvgPicture.asset(TextConstants.heartIcon,color: ColorConstants.white,),
+          GestureDetector(child: SvgPicture.asset(TextConstants.commentIcon,color: ColorConstants.white,)),
+          GestureDetector(child: SvgPicture.asset(TextConstants.heartIcon,color: ColorConstants.white,)),
         ],
       ),
     );

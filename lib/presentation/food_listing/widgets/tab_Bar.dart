@@ -43,7 +43,7 @@ class _FoodTabBarState extends State<FoodTabBar> {
                   child: Container(
                     padding:
                     const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                    decoration: BoxDecoration(
+                    decoration: BoxDecoration(  //ask
                       color: isSelected
                           ? ColorConstants.bottomNavigation
                           : ColorConstants.sliderGrey,

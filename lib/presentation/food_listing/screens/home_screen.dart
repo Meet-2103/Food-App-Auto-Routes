@@ -6,9 +6,9 @@ import 'package:food_app_auto_router/presentation/food_listing/widgets/bottom_na
 import 'package:food_app_auto_router/presentation/food_listing/widgets/product_appbar.dart';
 import 'package:food_app_auto_router/presentation/food_listing/widgets/search_and_filter.dart';
 import 'package:food_app_auto_router/presentation/food_listing/widgets/tab_Bar.dart';
-import '../bloc/food_lisiting_event.dart';
-import '../bloc/food_listiing_bloc.dart';
-import 'package:food_app_auto_router/core/di/injection_container.dart' as di;
+import 'package:food_app_auto_router/presentation/food_listing/bloc/food_lisiting_event.dart';
+import 'package:food_app_auto_router/presentation/food_listing/bloc/food_listiing_bloc.dart';
+import 'package:food_app_auto_router/core/di/injection_container.dart' as inject;
 
 @RoutePage()
 class HomePage extends StatelessWidget {
@@ -16,8 +16,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<FoodListingBloc>(          //change  name change
-      create: (context) => FoodListingBloc(di.injector())..add(FoodLoadedEvent()),
+    return BlocProvider<FoodListingBloc>(
+      create: (context) => FoodListingBloc(inject.injector())..add(FoodLoadedEvent()),
       child: DefaultTabController(
       initialIndex: 1,
       length: 4,

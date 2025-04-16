@@ -1,9 +1,10 @@
+import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:food_app_auto_router/core/color_constants.dart';
 import 'package:food_app_auto_router/core/text_constants.dart';
 import 'package:food_app_auto_router/core/text_style_constants.dart';
 
-
+@RoutePage()
 class SuccessDialog extends StatelessWidget {
   const SuccessDialog({super.key});
 

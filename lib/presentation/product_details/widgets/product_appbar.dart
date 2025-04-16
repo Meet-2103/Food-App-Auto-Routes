@@ -1,16 +1,16 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:food_app_auto_router/core/color_constants.dart';
 import 'package:food_app_auto_router/core/text_constants.dart';
 
 class ProductDetailAppBar extends StatelessWidget implements PreferredSizeWidget{
-  const ProductDetailAppBar({super.key});
+  Color backgroundColor;
+  ProductDetailAppBar({super.key,required this.backgroundColor});
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: ColorConstants.white,
+      backgroundColor: backgroundColor,
       leading: IconButton(onPressed: (){
         context.pop();
       },

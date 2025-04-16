@@ -40,5 +40,13 @@ class TextConstants{
       'A receipt for this purchase has\n'
       'been sent to your email.';
   static const goBack = 'Go Back';
+  static final searchPng='assets/images/search.png';
+  static const String save = "Save";
+  static const String editProfile = "Edit Profile";
+  static const String logout = "Log out";
 
+  static const String nameHint = "Name";
+  static const String emailHint = "Email";
+  static const String addressHint = "Delivery address";
+  static const String passwordHint = "Password";
 }

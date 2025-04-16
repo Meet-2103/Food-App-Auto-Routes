@@ -33,13 +33,16 @@ class SearchAndFilterBar extends StatelessWidget {
                 ],
               ),
               child: TextField(
+
                 onChanged: (query) {
                   context.read<FoodListingBloc>().add(SearchFoodEvent(query));
                 },
                 decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 16,vertical: 16),
                   border: InputBorder.none,
                   hintText: TextConstants.search,
+                  prefixIcon: Image.asset(TextConstants.searchPng),
                 ),
                 style: TextStyleConstants.searchButton,
               ),

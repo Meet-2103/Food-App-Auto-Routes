@@ -104,4 +104,11 @@ class TextStyleConstants{
     fontFamily: 'Roboto',
   );
 
+  static const TextStyle logoutButton = TextStyle(
+  color: ColorConstants.red,
+  fontSize: 16,
+  fontWeight: FontWeight.w500,
+  );
+
+
 }
